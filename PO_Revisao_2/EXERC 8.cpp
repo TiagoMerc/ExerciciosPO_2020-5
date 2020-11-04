@@ -1,25 +1,16 @@
 #include<iostream>
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
-
-#define Lin 9
-#define Col 2
-#define max 10
 
 using namespace std;
 
 
-int a=-1;
-void exibir(int v[]){
-
-    a++;
-    if (a<max){
-        printf("%d ", "\nSoma", v[a]);
-        exibir(v);
+int somar(int vetor[], int atual, int final) {
+    if(atual == final) {
+        return vetor[atual];
+    } else {
+        return vetor[atual] + somar(vetor, ++atual, final);
     }
-    getch();
 }
 
 int main(){
@@ -33,21 +24,37 @@ int main(){
 	
 	cout <<"\n\t\t EXERCICIO 8" << endl;
     
-	cout <<"\n Usando recursividade, faca um programa que calcule a soma dos valores de um vetor. \n";
+	cout <<"\n Usando recursividade, faca um programa que calcule\n ";
+	cout <<"a soma dos valores de um vetor. \n";
+
+   int tamanho = 0;
+
+    cout << "\n\nQuantidade de elementos: \n";
+    cin >> tamanho;
+
+    int vetor[tamanho];
+
+    cout << "\n--- Entrada de Dados --- \n";
+    for (int i = 0; i < tamanho; i++)
+    {
+        cin >> vetor[i];
+    }
+
+    cout << "\n------------- \n";
+    cout << "Soma:  \n" << somar(vetor, 0, tamanho - 1);
+    
+    cout << "\n\n-----------------FIM-----------------\n";
+	return 0;
 
 
-    int vet[max];
-    int i;
-  
-  
-  
-  
-    for (i=0;i<max;i++)
-        scanf("%d",&vet[i]);
-
-    exibir(vet);
 }
 
+
+
+
+  
+
+	
 
 
 
